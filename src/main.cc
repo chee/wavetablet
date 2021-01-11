@@ -6,10 +6,7 @@
 #include <Wire.h>
 #include <synth_wavetable.h>
 
-// #include <AnalogSaw_samples.h>
-// #include <Flute_100kbyte_samples.h>
-#include <lead_samples.h>
-auto instrument = lead;
+#include "instrument.h"
 
 // Audio mixers can take 4 inputs
 // Let's have 8 inputs in total for an 8-finger polyphonic synth

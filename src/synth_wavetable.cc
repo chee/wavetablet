@@ -76,12 +76,13 @@ CODE_BLOCK_TO_TEST
  *
  */
 void AudioSynthWavetable::stop(void) {
-	cli();
-	if (env_state != STATE_IDLE) {
-		env_state = STATE_RELEASE;
-		env_count = current_sample->RELEASE_COUNT;
-		if (env_count == 0) env_count = 1;
-		env_incr = -(env_mult) / (env_count * ENVELOPE_PERIOD);
+  cli();
+  if (env_state != STATE_IDLE) {
+    env_state = STATE_RELEASE;
+    env_count = current_sample->RELEASE_COUNT;
+    if (env_count == 0)
+      env_count = 1;
+    env_incr = -(env_mult) / (env_count * ENVELOPE_PERIOD);
 	}
 	PRINT_ENV(STATE_RELEASE);
 	sei();
@@ -104,7 +105,7 @@ void AudioSynthWavetable::playFrequency(float freq, int amp) {
  * @param amp Amplitude scaling of playback, value between 0-127, with 127 being base volume
  */
 void AudioSynthWavetable::playNote(int note, int amp) {
-	setState(note, amp, noteToFreq(note));
+  setState(note, amp, noteToFreq(note));
 }
 
 /**
